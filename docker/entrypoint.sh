@@ -12,5 +12,4 @@ for item in "$project_dir"/*; do
     fi
 done
 
-# http://0.0.0.0:8032
-litellm --model ollama/codellama --port 8032
+python -m http.server 8080
