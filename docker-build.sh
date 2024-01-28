@@ -1,5 +1,6 @@
-docker build --rm -t jdcloudiaas/turta:gpt-sangforer -f docker/Dockerfile .
-
+docker build --rm -t jdcloudiaas/turta:gpt-sangforer -f docker/Dockerfile.gpt-sangforer .
+docker build --rm -t jdcloudiaas/turta:litellm -f docker/Dockerfile.litellm .
+docker build --rm -t jdcloudiaas/turta:ollama-codellama -f docker/Dockerfile.ollama-codellama .
 
 ## online tokenizer
 docker run -d -it --rm --network host --privileged --name codellm jdcloudiaas/turta:codellm
