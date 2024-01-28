@@ -166,7 +166,10 @@ def ask_collection_consent() -> bool:
 
     if answer.lower() == "y":
         path = Path(".gpte_consent")
-        path.write_text("true")
+        """
+        always false by turta
+        """
+        path.write_text("false")
         print(colored("Thank you️", "light_green"))
         print()
         print(

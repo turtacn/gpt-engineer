@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+RUN apt-get update \
+ && apt-get install -y sudo tk tcl gcc curl git
+
+WORKDIR /app
+
+RUN sudo pip install --upgrade pip
+RUN sudo pip install poetry
+#RUN git clone https://github.com/gpt-engineer-org/gpt-engineer.git
+RUN git clone https://github.com/turtacn/gpt-engineer.git
+RUN cd gpt-engineer && poetry install
+ENV OPENAI_API_BASE http://0.0.0.0:8032
+ENV OPENAI_API_KEY sxf-tuxudong
+EXPOSE 7000
+CMD python -m http.server 7000

@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+RUN apt-get update \
+ && apt-get install -y sudo tk tcl gcc curl git
+
+WORKDIR /app
+
+RUN sudo pip install --upgrade pip
+RUN sudo pip install litellm
+RUN sudo pip install 'litellm[proxy]'
+EXPOSE 8032
+CMD litellm --model ollama/codellama --port 8032
